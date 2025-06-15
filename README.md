@@ -11,6 +11,9 @@ A curated collection of practical reference guides for developers and data scien
 - [Linux and Unix Commands](./linux-unix-commands.md)  
   A handy reference for frequently used Unix/Linux command-line operations with examples.
 
+- [Python Virtual Environment Setup Reference](./python-venv.md)  
+  Covering both `venv` (built-in Python tool) and `conda` (Anaconda/Miniconda).
+
 - [NVM & NPM Reference](./nvm-npm.md)  
   Instructions for managing Node.js versions with NVM and handling packages with NPM.
 
