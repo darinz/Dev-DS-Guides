@@ -1,16 +1,14 @@
 # Python Virtual Environment Reference
 
-A guide to managing Python virtual environments using both `venv` and `conda`.
-
+A guide to managing Python virtual environments using `venv`, `conda`, and `uv`.
 
 ## Table of Contents
 
 1. [Using `venv` (Standard Python)](#using-venv-standard-python)
 2. [Using `conda`](#using-conda)
-3. [General Tips](#general-tips)
-4. [Why Use Virtual Environments?](#why-use-virtual-environments)
-
----
+3. [Using `uv`](#using-uv)
+4. [General Tips](#general-tips)
+5. [Why Use Virtual Environments?](#why-use-virtual-environments)
 
 ## Using `venv` (Standard Python)
 
@@ -70,6 +68,7 @@ pip freeze > requirements.txt
 pip install -r requirements.txt
 ```
 
+---
 
 ## Using `conda`
 
@@ -113,22 +112,85 @@ conda env export > environment.yml
 conda env create -f environment.yml
 ```
 
+---
+
+## Using `uv`
+
+[`uv`](https://github.com/astral-sh/uv) is a fast Python package installer and virtual environment manager, drop-in compatible with `pip`.
+
+### Requirements
+
+* Install `uv` using `curl` or `brew`:
+
+```bash
+# Using curl
+curl -Ls https://astral.sh/uv/install.sh | bash
+
+# Or using Homebrew (macOS/Linux)
+brew install astral-sh/uv/uv
+```
+
+### Create a New Environment and Install Packages
+
+```bash
+uv venv
+uv pip install requests
+```
+
+* `uv venv` sets up a `.venv` directory in your project.
+* `uv pip` works like standard pip but is significantly faster.
+
+### Activate the Environment
+
+* **macOS/Linux**:
+
+  ```bash
+  source .venv/bin/activate
+  ```
+
+* **Windows**:
+
+  ```cmd
+  .venv\Scripts\activate
+  ```
+
+### Export Dependencies
+
+```bash
+uv pip freeze > requirements.txt
+```
+
+### Install from Requirements
+
+```bash
+uv pip install -r requirements.txt
+```
+
+### Run Scripts in the Virtual Environment
+
+You can run Python scripts with:
+
+```bash
+uv pip run python your_script.py
+```
+
+---
 
 ## General Tips
 
 * Use virtual environments per project to isolate dependencies.
 * Avoid installing global packages unless absolutely necessary.
-* Use `.gitignore` to exclude virtual environment folders (`venv/`, `env/`, `.venv/`).
-* Common virtual environment directory names: `venv`, `.venv`, `env`
+* Add virtual environment directories to `.gitignore`:
 
 ```bash
-echo "venv/" >> .gitignore
+echo ".venv/" >> .gitignore
 ```
 
+* Common virtual environment folders: `venv`, `.venv`, `env`
 
 ## Why Use Virtual Environments?
 
-* Prevents conflicts between project dependencies.
-* Enables reproducible builds and easier collaboration.
-* Keeps your system Python clean and stable.
-* Works well with tools like Docker, CI/CD, and deployment platforms.
+* Prevents dependency conflicts between projects.
+* Enables reproducible development and testing environments.
+* Keeps your system Python clean.
+* Works seamlessly with Docker, CI/CD tools, and cloud platforms.
