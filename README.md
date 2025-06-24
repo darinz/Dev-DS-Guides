@@ -28,7 +28,7 @@ These reference files are designed for quick lookup and onboarding. You can:
 - Clone this repo:
   
 ```bash
-  git clone https://github.com/darinz/dev-cheatsheets.git
+  git clone https://github.com/darinz/Dev-Cheatsheets.git
 ```
 
 * Bookmark the repo for regular use.
