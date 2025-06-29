@@ -6,6 +6,10 @@
   <img src="https://img.shields.io/badge/Linux-000000?style=flat-square&logo=linux&logoColor=white" alt="Linux" />
   <img src="https://img.shields.io/badge/Unix-4D4D4D?style=flat-square&logo=unix&logoColor=white" alt="Unix" />
   <img src="https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnu-bash&logoColor=white" alt="Bash" />
+  <img src="https://img.shields.io/badge/FTP-FF6600?style=flat-square&logo=ftp&logoColor=white" alt="FTP" />
+  <img src="https://img.shields.io/badge/SFTP-3DDC84?style=flat-square&logo=ssh&logoColor=white" alt="SFTP" />
+  <img src="https://img.shields.io/badge/wget-6A5ACD?style=flat-square&logo=gnu&logoColor=white" alt="wget" />
+  <img src="https://img.shields.io/badge/CLI-000000?style=flat-square&logo=terminal&logoColor=white" alt="CLI" />
 </p>
 
 ---
@@ -19,5 +23,7 @@
 ## Contents
 
 - **[linux-unix-commands.md](linux-unix-commands.md)**: Complete command reference covering file operations, text processing, system administration, networking, security, shell scripting, and troubleshooting.
+- **[ftp-commands.md](ftp-commands.md)**: Comprehensive guide to FTP and SFTP commands for secure file transfers between systems.
+- **[wget-commands.md](wget-commands.md)**: Complete reference for using wget to download files from the web with advanced options and automation.
 
 Use these guides to master command-line operations for development, system administration, and daily tasks. 
