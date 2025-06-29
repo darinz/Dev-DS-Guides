@@ -477,6 +477,95 @@ ssh john@192.168.1.100
 ssh -L 3306:localhost:3306 user@database-server
 ```
 
+### cURL (HTTP/FTP Client)
+
+cURL is a powerful tool for transferring data with URLs. It supports HTTP, HTTPS, FTP, SFTP, and many other protocols.
+
+#### Basic cURL Commands
+
+```bash
+# Simple GET request
+curl http://google.com:80
+curl -L google.com                    # Follow redirects
+curl -o google google.com             # Save output to file
+
+# Basic web requests
+curl "google.com"                     # GET request
+curl "www.google.com/search?q=foo"   # GET with parameters
+```
+
+#### POST Requests
+
+```bash
+# POST with data (-d flag)
+curl http://example.com/cgi-bin/script.pl -d realname=sam -d hatesanchovies=true
+
+# POST with form data (-F flag)
+curl http://example.com/cgi-bin/script.pl -F picture=@.zshrc
+
+# URL encoding
+curl http://example.com/cgi-bin/script.pl --data-urlencode "foo=&bar"
+
+# Note: Can't mix -d and -F flags (different types)
+```
+
+#### Customizing Requests
+
+```bash
+# Show only headers
+curl stanford.edu/~darinz -I
+
+# Verbose output
+curl stanford.edu/~darinz -v
+
+# Custom headers
+curl stanford.edu/~darinz -H "Foo: bar"
+
+# Custom user agent
+curl whatismyipaddress.com -A "Mozilla/4.05"
+
+# Follow redirects
+curl -L http://example.com
+```
+
+#### Advanced cURL Features
+
+```bash
+# Generate C library code
+curl --libcurl foo.c google.com
+
+# Download with progress
+curl -# -O https://example.com/file.zip
+
+# Resume download
+curl -C - -O https://example.com/file.zip
+
+# Authentication
+curl -u username:password https://example.com/api
+curl --user username:password https://example.com/api
+
+# Examples:
+curl -v -H "Accept: application/json" https://api.github.com/users/octocat
+curl -u myuser:mypass https://example.com/secure-area
+```
+
+#### cURL for FTP/SFTP
+
+```bash
+# FTP download
+curl -u username:password ftp://ftp.example.com/file.txt -o localfile.txt
+
+# FTP upload
+curl -T localfile.txt ftp://ftp.example.com/ -u username:password
+
+# SFTP (requires libssh2)
+curl -u username sftp://host.com/file.txt -o localfile.txt
+
+# Examples:
+curl -u ftpuser:ftppass ftp://ftp.gnu.org/gnu/wget/wget-1.21.3.tar.gz
+curl -T backup.tar.gz ftp://backup-server/ -u backupuser:backuppass
+```
+
 ---
 
 ## Package Management
@@ -778,6 +867,54 @@ which python3
 whereis git
 ```
 
+### I/O Redirection and Pipes
+
+```bash
+# Basic redirection
+command > file                    # Redirect output to file (overwrite)
+command >> file                   # Redirect output to file (append)
+command < file                    # Redirect input from file
+command 2> file                   # Redirect error output to file
+command 2>> file                  # Redirect error output to file (append)
+
+# Combining output and error
+command > file 2>&1               # Redirect both output and error to file
+command &> file                   # Alternative syntax (bash)
+command > file 2>&1               # Same as above
+
+# Examples:
+grep cat temp.txt > cat_temp.txt
+grep cat temp.txt >> cat_append_temp.txt
+awesome 2>> temp                  # Redirect error output
+./read-input.py < input.txt       # Use input from file
+```
+
+### Advanced I/O Operations
+
+```bash
+# Tee command (output to stdout and file)
+cat file | tee output.txt         # Output to both terminal and file
+cat words | tee tee_words         # Save output to file
+ping google.org | tee ping_google # Save ping output
+
+# Here documents
+cat << EOF > file.txt
+Line 1
+Line 2
+EOF
+
+# Process substitution
+diff <(sort file1) <(sort file2)  # Compare sorted files
+cat <(echo "Hello") <(echo "World") # Combine command outputs
+
+# Examples:
+ls -la | tee directory_listing.txt
+cat << 'EOF' > script.sh
+#!/bin/bash
+echo "Hello World"
+EOF
+```
+
 ---
 
 ## Archiving and Compression
@@ -805,6 +942,26 @@ tar -tzvf archive.tar.gz           # List gzipped archive contents
 tar -czvf backup-$(date +%Y%m%d).tar.gz /home/user/
 tar -xzvf project.tar.gz
 tar -tvf archive.tar | grep "\.txt$"
+```
+
+### Advanced Tar Operations
+
+```bash
+# Split large archives into chunks
+tar chzvf - directory/ | split -b 200M - archive_name.tgz.
+# Creates: archive_name.tgz.aa, archive_name.tgz.ab, etc.
+
+# Split with different chunk sizes
+tar chzvf - * | split -b 80M - "backup.tgz."
+
+# Combine split archives
+cat archive_name.tgz.* | tar xvzf -
+cat backup.tgz.* | tar xvzf -
+
+# Examples:
+tar chzvf - ../../* | split -b 200M - ../../"course1.tgz."
+tar chzvf - * | split -b 80M - "C5.tgz."
+cat C1.tgz.* | tar xvzf -
 ```
 
 ### Compression Tools
@@ -1020,6 +1177,77 @@ done
 backup_files /home/user /backup/
 ```
 
+### Practical Bash Script Examples
+
+#### Basic Script Structure
+
+```bash
+#!/bin/bash
+echo "Hello World"
+
+# Run script
+bash script.sh
+# or
+chmod a+x script.sh
+./script.sh
+```
+
+#### Arithmetic Operations
+
+```bash
+#!/bin/bash
+
+# Add two numeric values
+((sum=25+35))
+
+# Print the result
+echo $sum
+
+# Alternative syntax
+sum=$((25 + 35))
+echo "Sum: $sum"
+```
+
+#### Multi-line Comments
+
+```bash
+#!/bin/bash
+: '
+The following script calculates
+the square value of the number, 5.
+'
+((area=5*5))
+echo $area
+
+# Alternative comment style
+<<'COMMENT'
+This is another way to create
+multi-line comments in bash.
+COMMENT
+```
+
+#### String Manipulation
+
+```bash
+#!/bin/bash
+
+# Combine string variables
+string1="Linux"
+string2="Hint"
+echo "$string1$string2"
+
+# String concatenation with +
+string3=$string1+$string2
+string3+=" is a good tutorial blog site"
+echo $string3
+
+# Examples:
+# Output: LinuxHint
+# Output: Linux+Hint is a good tutorial blog site
+```
+
+#### Advanced Scripting
+
 ---
 
 ## Security Commands
@@ -1229,4 +1457,94 @@ valgrind --tool=memcheck ./myapp
 ---
 
 **Note**: This guide covers the most commonly used Linux and Unix commands. For more detailed information about specific commands, use `man command` or `command --help`. Always be careful with system administration commands, especially when using `sudo`.
+
+### Shell Management
+
+```bash
+# Change login shell
+chsh -s $(which zsh)           # Change to zsh
+sudo chsh -s /bin/zsh userName # Change specific user's shell
+
+# Alternative methods
+sudo vim /etc/passwd           # Edit passwd file directly
+# Update /bin/bash to /bin/zsh in the file
+
+# Startup file for default shell
+vim .Login                      # Edit login file
+
+# Determine current shell
+echo $0                         # Show current shell name
+echo $SHELL                     # Show default shell
+
+# Examples:
+chsh -s $(which zsh)
+echo $0                         # Output: zsh
+```
+
+### System Information
+
+```bash
+# Find Linux version
+uname -r                        # Kernel version
+cat /etc/os-release            # OS release information
+lsb_release -a                 # LSB release information
+
+# Examples:
+uname -r                       # Output: 5.4.0-42-generic
+cat /etc/os-release           # Shows detailed OS info
+lsb_release -a                # Shows distribution info
+```
+
+### Configuration Files
+
+```bash
+# Vim configuration (.vimrc)
+syntax on                      # Enable syntax highlighting
+:set tabstop=4                # Set tab width to 4 spaces
+:set shiftwidth=4             # Set indentation width
+:set expandtab                # Use spaces instead of tabs
+
+# Add to .vimrc file
+echo "syntax on" >> ~/.vimrc
+echo "set tabstop=4" >> ~/.vimrc
+echo "set shiftwidth=4" >> ~/.vimrc
+echo "set expandtab" >> ~/.vimrc
+```
+
+### Aliases and Shortcuts
+
+```bash
+# Create aliases
+alias m="ssh -X yourSUNNetID@myth.stanford.edu"
+alias ll="ls -la"
+alias la="ls -A"
+alias l="ls -CF"
+
+# List all aliases
+alias
+
+# Remove alias
+unalias alias_name
+
+# Examples:
+alias backup="rsync -avz /home/user/ /backup/"
+alias update="sudo apt update && sudo apt upgrade"
+```
+
+### Advanced Search Commands
+
+```bash
+# Search subdirectories
+echo **/*                    # List all sub-dirs and files
+echo **/*(*)                 # List executable files
+echo **/*(.)                 # List regular files
+
+# Zsh-specific globbing
+ls **/*.txt                  # Find all .txt files recursively
+find . -name "*.txt"         # Alternative using find
+
+# Examples:
+echo **/*.py                 # List all Python files
+echo **/*(/)                 # List only directories
+```
 
