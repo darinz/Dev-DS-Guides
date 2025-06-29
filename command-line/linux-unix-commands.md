@@ -1,5 +1,14 @@
 # Linux and Unix Command Line Reference
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Linux-000000?style=flat-square&logo=linux&logoColor=white" alt="Linux" />
+  <img src="https://img.shields.io/badge/Unix-4D4D4D?style=flat-square&logo=unix&logoColor=white" alt="Unix" />
+  <img src="https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnu-bash&logoColor=white" alt="Bash" />
+  <img src="https://img.shields.io/badge/Shell_Scripting-FF6C37?style=flat-square&logo=shell&logoColor=white" alt="Shell Scripting" />
+  <img src="https://img.shields.io/badge/System_Admin-FF6600?style=flat-square&logo=server&logoColor=white" alt="System Admin" />
+  <img src="https://img.shields.io/badge/CLI-000000?style=flat-square&logo=terminal&logoColor=white" alt="CLI" />
+</p>
+
 A comprehensive reference for Linux and Unix command-line operations, including basic commands, advanced system administration, shell scripting, and troubleshooting.
 
 ---
