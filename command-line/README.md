@@ -22,6 +22,7 @@
 
 ## Contents
 
+- **[linux-command-line-tutorial.md](linux-command-line-tutorial.md)**: Comprehensive tutorial covering command line basics, file management, text editing, user administration, permissions, process management, and software installation.
 - **[linux-unix-commands.md](linux-unix-commands.md)**: Complete command reference covering file operations, text processing, system administration, networking, security, shell scripting, and troubleshooting.
 - **[ftp-commands.md](ftp-commands.md)**: Comprehensive guide to FTP and SFTP commands for secure file transfers between systems.
 - **[wget-commands.md](wget-commands.md)**: Complete reference for using wget to download files from the web with advanced options and automation.
