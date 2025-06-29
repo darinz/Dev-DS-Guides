@@ -1,0 +1,55 @@
+30 Bash Script Examples
+
+https://linuxhint.com/30_bash_script_examples/
+
+$ nano First.sh
+
+#!/bin/bash
+echo "Hello World"
+
+$ bash First.sh
+or
+$ chmod a+x First.sh
+$ ./First.sh
+
+-------------------------------
+#!/bin/bash
+
+# Add two numeric value
+((sum=25+35))
+
+#Print the result
+echo $sum
+
+----------------------------------
+Use of Multi-line comment:
+You can use multi line comment in bash in various ways.
+A simple way is shown in the following example. Create a new bash named, 
+‘multiline-comment.sh’ and add the following script. Here, ‘:’ and “ ’ ” 
+symbols are used to add multiline comment in bash script. 
+This following script will calculate the square of 5.
+#!/bin/bash
+: '
+The following script calculates
+the square value of the number, 5.
+'
+((area=5*5))
+echo $area
+
+-------------------------------------
+Combine String variables:
+
+You can easily combine string variables in bash. Create a file named “string_combine.sh” and add the following script to check how you can combine string variables in bash by placing variables together or using ‘+’ operator.
+#!/bin/bash
+
+string1="Linux"
+string2="Hint"
+echo "$string1$string2"
+string3=$string1+$string2
+string3+=" is a good tutorial blog site"
+echo $string3
+
+Run the file with bash command.
+$ bash string_combine.sh
+
+-------------------------------------------
