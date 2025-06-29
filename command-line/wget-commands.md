@@ -75,6 +75,7 @@ wget -P /path/to/directory https://example.com/file.zip
 wget https://ftp.gnu.org/gnu/wget/wget-1.21.3.tar.gz
 wget -O ubuntu.iso https://releases.ubuntu.com/22.04/ubuntu-22.04.3-desktop-amd64.iso
 wget -P ~/Downloads https://example.com/document.pdf
+wget http://stanford.edu/~samking/cs1u/scp.mp4
 ```
 
 ### Download Progress and Output
@@ -592,4 +593,4 @@ wget --user=user --password=pass --limit-rate=1m https://example.com/file.zip
 wget -r -A "*.pdf,*.txt" --no-parent https://example.com/directory/
 ```
 
-This guide covers the essential wget commands needed for downloading files from the web in command-line environments. 
+This guide covers the essential wget commands needed for downloading files from the web in command-line environments.
