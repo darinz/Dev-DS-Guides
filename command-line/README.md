@@ -12,6 +12,10 @@
 
 > **Comprehensive guides for Linux/Unix command-line operations, from basic navigation to advanced system administration and security.**
 
+## Learning Resources
+
+- **[Practical Unix](https://practicalunix.org/)**: A practical introduction to using the Unix set of operating systems with a focus on Linux command line skills. Features videos, lab exercises, and covers topics like grep, regular expressions, shells, Vim, Emacs, GDB, permissions, file systems, revision control, and Python for shell scripts.
+
 ## Contents
 
 - **[linux-unix-commands.md](linux-unix-commands.md)**: Complete command reference covering file operations, text processing, system administration, networking, security, shell scripting, and troubleshooting.
