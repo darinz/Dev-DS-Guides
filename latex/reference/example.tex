@@ -1,0 +1,126 @@
+% This is a bare-bones sample LaTeX document created by Benson Kung in 2020.
+% You can modify it as you wish, but this should be sufficient for CS109.
+% That being said, there  are a lot of idiosyncracies here so, feel free to experiment! (:
+% Ctrl+f or Cmd+f or / to "\begin{document}" to skip the boilerplate below.
+
+% You can actually remove "[11pt]".
+% However, LaTeX defaults to 10pt font, which I think is sorta small.
+\documentclass[11pt]{article}
+
+% You need these packages to effectively write equations.
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+% You can add images if you import graphicx.
+% Modify graphicspath if your images are in a different folder.
+\usepackage{graphicx}
+\graphicspath{{./}}
+
+% You can remove this if you feel like it, but I think the default margins 
+% are too small, and better suited for writing actual articles, not homeworks.
+\usepackage[margin=1in]{geometry}
+
+% OK, OK, this is a purely personal choice.
+% I just do not find the automatic paragraph indenting to be aesthetically pleasing.
+\setlength\parindent{0pt}
+
+% You can do a lot more in LaTeX than I will cover here.
+% Here is a helpful cheat  sheet: https://www.nyu.edu/projects/beber/files/Chang_LaTeX_sheet.pdf
+% And as usual, Stack Overflow is your friend for formatting issues. 
+
+% OK! Let's start. Everything in between \begin{document} and \end{document} 
+% will be placed in our final PDF.
+\begin{document}
+
+% You can actually write \section{} instead, but then LaTeX
+% will automatically number your section, and "1. Problem One" feels redundant.
+\section*{Problem One}
+
+% Do not feel pressured into writing questions on your homework...
+% this is just here for some context.
+% Note that \\ creates a line break.
+\textbf{Prove that the harmonic series diverges, i.e. has an infinite sum.} \\
+
+% Text written in the equation environment will be considered to be "math",
+% and will be written differently than the rest of the document.
+% In particular, you will have access to special symbols, like \frac{}{}, 
+% and any text you put in between will be italicized.
+We know that the harmonic series is defined as follows:
+\begin{equation} \label{harmonic} %The \label{...} is for later.
+\sum_{n = 1}^{\infty} \frac{1}{n} = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \frac{1}{5} + \dots 
+\end{equation}
+% Tip: If you need to, you can write text in "math mode" by writing \text{your text here}.
+
+% Like sections, LaTeX will number your equations automatically.
+% Sometimes, I find this to be annoying. So you can also write
+% \begin*{equation} to suppress this numbering too. You can also 
+% opt to use instead of the equation environment, i.e. \[ 1 + 1 + 1 + 1 + 1 + \dots \], 
+% if you do not want any numbering.
+We also know that
+\begin{equation} \label{ones} % We will reference the equations using \ref{}.
+\lim_{k \to \infty} 1 + \frac{k}{2} = \infty.
+\end{equation}
+We will see that by comparing (\ref{ones}) to (\ref{harmonic}), we can conclude that the harmonic series is divergent.
+We will do so by substituting and grouping terms in (\ref{harmonic}) together.
+% Note the &s; everything will be centered around the &s in the align environment.
+\begin{align*}
+1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} + \dots
+    &> 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{4} + \frac{1}{5} + \frac{1}{6} + \frac{1}{7} + \frac{1}{8} + \dots \\
+    &> 1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{4} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8} + \frac{1}{8}  + \dots \\
+    &= 1 + \frac{1}{2} + \frac{1}{2} + \frac{1}{2} + \frac{1}{2} + \dots
+\end{align*}
+The above shows that
+\begin{equation*}
+\sum_{n = 1}^{2^k} \frac{1}{n} \geq 1 + \frac{k}{2}
+\end{equation*}
+so the harmonic series must be convergent. 
+
+% \begin{figure}
+%     \centering
+%     \includegraphics{noether.jpg}
+%     \caption{You can do it!}
+% \end{figure}
+
+% This will push the following code into a new page,
+% which is a nice way to organize your work.
+\newpage
+
+\section*{Problem Two}
+
+\textbf{Use the Pigeonhole Principle to solve the following problems.}
+% Tip: If you want "inline" "math mode", you do so by writing $your math here$.
+Remember that Pigeonhole Principle states that if you put $n$ pigeons into $k$ holes, then one of the holes contains $\lceil n/k \rceil$ pigeons.
+
+% enumerate is a good way to organize statements.
+% If you prefer bullet points to numbers, you can use enumerate's cousin, \begin{itemize} \end{itemize}.
+\begin{enumerate}
+\item \textbf{Prove that, in a group of $n \in \mathbb{N}$ people, there are two people with the same number of friends.} 
+(This problem assumes that if person A is friends with person B, then person B is friends with person A.)
+
+A person can have between $0$ and $n-1$ friends. 
+However, if a person has $n - 1$ friends, then everyone has at least one friend.
+There are $n$ people, but each person can have between $1$ to $n-1$ friends, so by the Pigeonhole Principle, two people have the same number of friends.
+
+A similar situation occurs if a person has $0$ friends. 
+If a person has $0$ friends, then no one can have $n-1$ friends, so by the Pigeonhole Principle, two people have the same number of friends.
+
+If neither case applies, then everyone has between $1$ and $n-2$ friends, and by applying the Pigeonhole Principle one more time, we find that two people must have the same number of friends. So two people must have the same number of friends.
+
+\item \textbf{Prove that, given a set of a hundred whole numbers, one number is either divisible by 100 or there are several numbers whose sum is divisible by 100.}
+
+Say there is no number that is divisible by 100.
+We will show that there are several numbers who sum is divisible by 100.
+First, we label the numbers $x_1, x_2, x_3$, and so on.
+Second, we consider the subsets $\{x_1\}, \{x_1, x_2\}, \{x_1, x_2, x_3\}$, and so on.
+Compute the sums; if no sum is divisible by 100, then there are 100 subsets but only 99 possible residues (i.e. numbers modulo 100). 
+Thus we have some $i$ and $j$, where $i < j$, such that 
+\[ x_1 + \dots + x_i \equiv x_1 + \dots + x_j \mod 100\]
+
+% There is some subtlety here --- you can create sub/superscripts by using _ and ^ in math mode.
+% However, if you want to include multiple symbols in your sub/superscripts, you need to write _{your symbols here}.
+which, if we subtract $x_1 + \dots x_{i - 1}$ from each side, we find that
+\[ x_i + \dots + x_j \equiv 0 \mod 100. \]
+In other words, we have found some numbers whose sum is divisible by 100!
+\end{enumerate}
+
+\end{document}
