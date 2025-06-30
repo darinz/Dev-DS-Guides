@@ -16,5 +16,9 @@
 
 - **[latex-guide.md](latex-guide.md)**: Complete LaTeX reference covering document structure, math, tables, figures, advanced formatting, and best practices.
 - **[latex-templates.md](latex-templates.md)**: Ready-to-use LaTeX templates for academic papers, reports, theses, presentations, letters, resumes, posters, books, and custom classes/packages.
+- **[reference/](reference/)**: Additional resources including:
+  - **PDF References**: LaTeX cheatsheets, math symbols guide, and example documents
+  - **TEX Templates**: Example LaTeX source files for installation guides and sample documents
+  - **Markdown Guides**: Math equations reference and LaTeX resources compilation
 
 Use these resources to create professional documents, academic papers, and technical content with LaTeX. 
