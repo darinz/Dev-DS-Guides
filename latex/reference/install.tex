@@ -1,0 +1,98 @@
+\documentclass[11pt]{article}
+
+% to do maths
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+% to add images if you would like
+% modify graphicspath if your images are in a different folder
+\usepackage{graphicx}
+\graphicspath{{./}}
+
+% figures - use matcha.io to generate TikZ compatible figures!
+\usepackage{tikz}
+\tikzset{every picture/.style={line width=0.75pt}}
+
+% I hate the default LaTeX margins, ugh
+\usepackage[margin=1in]{geometry}
+
+% remove automatic indentations for paragraphs
+% this is more of a personal choice than anything else
+\setlength\parindent{0pt}
+
+\usepackage{}
+
+ % hyperlinks
+ \usepackage{hyperref}
+ \hypersetup{
+    colorlinks=true,
+    linkcolor=blue
+ }
+
+\begin{document}
+\begin{center}
+\huge{Setting Up \LaTeX}\footnote{Updated in April 2020 by Benson Kung from an introduction written by Juan Batiz-Benet.}
+\end{center}
+
+\section*{Why \LaTeX?}
+Using \LaTeX\ for homework submissions CS109 is recommended\footnote{\textbf{Please, please, please} consider using \LaTeX.}, but not required.
+So it is natural for you, the curious CS109 student, to ask, ``Why should I use \LaTeX?"
+\LaTeX\ is the de facto standard scientific publications, so just as naturally, there are several reasons to use \LaTeX\ outside of our recommendation.
+\begin{enumerate}
+    \item \LaTeX\ is based upon \TeX\ by Donald Knuth\footnote{Donald Knuth is also a professor at our university, and has received, amongst other accolades, the Turing Award, the National Medal of Science, the John von Neumann Medal, and the Kyoto Prize.}, who was recently referred to as \href{https://www.nytimes.com/2018/12/17/science/donald-knuth-computers-algorithms-programming.html}{``The Yoda of Computer Science"} by the New York Times, so you are in good company when you use \LaTeX. 
+    \item \LaTeX\ was created to create high-quality documents with minimal effort; \LaTeX\ turns your humble homeworks into art. The idea behind \LaTeX\ is to separate writing and formatting documents. As a result, you can write your homework in your favorite text editor, and \LaTeX\ will automatically format your document. 
+    \item Unlike CS109, \LaTeX\ is often a requirement for publications, and occasionally, for other classes at Stanford, so now is as good as a time to learn \LaTeX\ as any. This is especially true when you need to write mathematical equations online, e.g. for a post on Piazza, which has built-in \LaTeX\ support. Currently, there is no better way to typeset equations.
+    \item It is also easier to write \LaTeX\ in bed, as opposed to writing in bed with a pencil and papers. You may find this helpful hint to be especially relevant given the fact that classes will be online. 
+\end{enumerate}
+Hopefully, you can now see the benefits of \LaTeX\ in your day-to-day life as a student.
+We will now cover the basics of using \LaTeX.
+
+\newpage
+
+\section*{Installing \LaTeX}
+\subsection*{The Overleaf Option}
+You can actually avoid installing \LaTeX\ by using \href{https://www.overleaf.com/}{Overleaf}, to which you actually have \href{https://www.overleaf.com/edu/stanford}{free Pro access} provided by the university. 
+Overleaf offers many perks, including automatic side-by-side rendering of your document, so it is a good option for people that are new to \LaTeX.
+
+\subsection*{For iOS}
+To download everything you need, you need to download \href{http://www.tug.org/mactex/morepackages.html}{MacTeX}. For the purpose of CS109, it is sufficient to download BasicTeX. To use \LaTeX, you need to:
+\begin{enumerate}
+\item Write what you need to in some \texttt{file.tex} using your favorite editor\footnote{For students that have taken CS107, you could even use Vim or Emacs. I do not endorse either editor for \LaTeX\ purposes.}.
+
+\item Use Terminal and \texttt{cd} to the appropriate directory. Then compile your document using the command \texttt{pdflatex file.tex}.
+
+\item If your file compiles successfully, you will now have a \texttt{file.pdf}! Wonderful, just wonderful. You can view \texttt{file.pdf} using Preview. Web browers like Google Chrome or Mozilla Firefox also provide PDF support if you find Preview to be slow.
+\end{enumerate}
+
+In general, just as you would for a program, you will probably want to compile your \LaTeX\ document early and often.
+This will make it easier to catch mistakes.
+
+\subsection*{For Windows\footnote{Care was taken to write this section. However, historically, I have found that Windows can be challenging to configure. As a result, feel free to e-mail me at benson97 if you have found alternative ways to use \LaTeX\ on Windows, especially if Texmaker and MiKTeX did not work for you.}}
+To download everything you need, you need to download \href{https://miktex.org/download}{MiKTeX}\footnote{Other CAs have also found using \href{https://www.xm1math.net/texmaker/}{Texmaker} to be a solid option as well.}. To use \LaTeX, you need to:
+\begin{enumerate}
+\item Write what you need to in some \texttt{file.tex} using your favorite editor\footnote{Many TeX distributions also come with a text editor. I find these to be clunky, but you can feel free to experiment with them.}.
+
+\item Use PowerShell and \texttt{cd} to the appropriate directory. Then compile your document using the command \texttt{texify file.tex}.
+
+\item If your file compiles successfully, you will now have a \texttt{file.pdf}! Wonderful, just wonderful. You can view \texttt{file.pdf} using your favorite PDF viewers. Web browers like Google Chrome or Mozilla Firefox also provide PDF support if you find Preview to be slow.
+\end{enumerate}
+
+In general, just as you would for a program, you will probably want to compile your \LaTeX\ document early and often.
+This will make it easier to catch mistakes\footnote{Yes, I also wrote this in the iOS section. But I think it's good advice, so I do not think it hurts to repeat it!}.
+
+\subsection*{Linux}
+For Debian or Ubuntu, you can download a \LaTeX\ distribution using:
+\begin{center}
+\texttt{sudo apt-get install texlive}
+\end{center}
+Using \LaTeX\ for Linux is much the same as using \LaTeX\ for iOS. See the iOS section for specifics.
+
+\newpage
+
+\section*{Resources}
+Overleaf has already written \href{https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes}{an excellent guide} on \LaTeX, which you can follow even if you prefer to develop locally.
+(Your distribution should have every package that you need.)
+However, if you would like a person to talk through writing a \LaTeX document with you, there is a video on \href{https://www.youtube.com/watch?v=aF3E2ZOom1o&feature=youtu.be}{YouTube}. 
+There is also an accompanying sample \LaTeX\ document which can be found on the \href{cs109.stanford.edu}{CS109 website}, that you can adapt for your own needs.
+Finally, there are many useful commands you can use, which have been recorded on \href{https://www.nyu.edu/projects/beber/files/Chang_LaTeX_sheet.pdf}{a helpful cheat sheet}. 
+\end{document}
