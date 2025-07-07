@@ -8,14 +8,15 @@ A comprehensive guide to LaTeX document preparation system, covering everything 
 2. [Document Structure](#document-structure)
 3. [Text Formatting](#text-formatting)
 4. [Mathematical Typesetting](#mathematical-typesetting)
-5. [Lists and Environments](#lists-and-environments)
-6. [Tables](#tables)
-7. [Figures and Graphics](#figures-and-graphics)
-8. [Cross-References](#cross-references)
-9. [Bibliography](#bibliography)
-10. [Advanced Features](#advanced-features)
-11. [Common Packages](#common-packages)
-12. [Troubleshooting](#troubleshooting)
+5. [GitHub Mathematical Expressions](#github-mathematical-expressions)
+6. [Lists and Environments](#lists-and-environments)
+7. [Tables](#tables)
+8. [Figures and Graphics](#figures-and-graphics)
+9. [Cross-References](#cross-references)
+10. [Bibliography](#bibliography)
+11. [Advanced Features](#advanced-features)
+12. [Common Packages](#common-packages)
+13. [Troubleshooting](#troubleshooting)
 
 ## Introduction
 
@@ -272,6 +273,104 @@ x^2 & \text{if } x > 0 \\
 -x^2 & \text{if } x < 0
 \end{cases}
 ```
+
+## GitHub Mathematical Expressions
+
+GitHub supports LaTeX-formatted mathematical expressions in Markdown files, issues, discussions, pull requests, and wikis. This allows you to display mathematical equations directly in your GitHub content using MathJax rendering.
+
+### Inline Mathematical Expressions
+
+There are two syntax options for inline mathematical expressions:
+
+#### Option 1: Dollar Symbol Delimiters
+```markdown
+This sentence uses `$` delimiters to show math inline: $\sqrt{3x-1}+(1+x)^2$
+```
+
+#### Option 2: Backtick Syntax (Recommended)
+```markdown
+This sentence uses $` and `$ delimiters to show math inline: $`\sqrt{3x-1}+(1+x)^2`$
+```
+
+**Best Practice**: Use the backtick syntax (```$`...`$```) when your mathematical expression contains characters that overlap with Markdown syntax. This prevents parsing conflicts and ensures proper rendering.
+
+### Block Mathematical Expressions
+
+For standalone mathematical expressions, use double dollar symbols:
+
+```markdown
+**The Cauchy-Schwarz Inequality**
+
+$$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
+```
+
+#### Alternative: Math Code Block Syntax
+
+You can also use the ```` ```math ```` code block syntax, which doesn't require `$$` delimiters:
+
+```markdown
+**The Cauchy-Schwarz Inequality**
+
+```math
+\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
+```
+```
+
+### Handling Dollar Signs in Mathematical Expressions
+
+When you need to display dollar signs within mathematical expressions:
+
+#### Within Math Expressions
+Escape the dollar sign with a backslash:
+```markdown
+This expression uses `\$` to display a dollar sign: $`\sqrt{\$4}`$
+```
+
+#### Outside Math Expressions
+Use span tags around the dollar sign:
+```markdown
+To split <span>$</span>100 in half, we calculate $100/2$
+```
+
+### Supported LaTeX Features
+
+GitHub's math rendering supports:
+- **MathJax**: Open-source JavaScript display engine
+- **LaTeX Macros**: Wide range of LaTeX mathematical commands
+- **Accessibility**: Built-in accessibility extensions
+- **Cross-Platform**: Consistent rendering across different devices
+
+### Where Mathematical Expressions Work
+
+Mathematical expressions are supported in:
+- GitHub Issues
+- GitHub Discussions
+- Pull Requests
+- Wikis
+- Markdown files (`.md`)
+
+### Example Usage
+
+```markdown
+# Mathematical Documentation
+
+## Inline Examples
+The quadratic formula is $`x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}`$.
+
+## Block Examples
+The Pythagorean theorem states:
+
+$$a^2 + b^2 = c^2$$
+
+## Complex Equations
+The Euler-Lagrange equation:
+
+```math
+\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}}\right) - \frac{\partial L}{\partial q} = 0
+```
+```
+
+For more information, see [GitHub's Mathematical Expressions Documentation](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions).
 
 ## Lists and Environments
 
