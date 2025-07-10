@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](../LICENSE)
 [![Status](https://img.shields.io/badge/Status-Complete-brightgreen.svg)]()
 
-This directory contains comprehensive guides for essential development tools used in C/C++ programming and software development.
+This section contains comprehensive guides for essential development tools used in C/C++ programming and software development.
 
 ## Available Guides
 
