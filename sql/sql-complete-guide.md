@@ -75,7 +75,7 @@ DROP DATABASE database_name;
 
 ```sql
 -- Numeric Types
-INT, INTEGER          -- 32-bit integer
+INT, INTEGER         -- 32-bit integer
 BIGINT               -- 64-bit integer
 SMALLINT             -- 16-bit integer
 DECIMAL(p,s)         -- Fixed-point decimal
