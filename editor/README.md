@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](../LICENSE)
 [![Contributions Welcome](https://img.shields.io/badge/Contributions-Welcome-brightgreen.svg?style=for-the-badge)](../README.md#contributing)
 
-This directory contains comprehensive guides for popular code editors and IDEs used in data science and development workflows.
+This section contains comprehensive guides for popular code editors and IDEs used in data science and development workflows.
 
 ## Available Guides
 
