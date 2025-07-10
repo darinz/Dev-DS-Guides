@@ -1,4 +1,4 @@
-# Dev-DS-Guides
+# Development and Data Science Guides
 
 <p align="center">
   <img src="https://img.shields.io/github/license/darinz/Dev-DS-Guides?style=flat-square" alt="License" />
@@ -64,7 +64,3 @@ Browse each topic-specific folder for detailed guides and templates. Each folder
 ## Contributing
 
 Contributions are welcome! Please open issues or pull requests to suggest improvements, add new guides, or report problems.
-
-## License
-
-This repository is licensed under the MIT License.
