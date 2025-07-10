@@ -5,7 +5,7 @@
 [![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](https://www.microsoft.com/windows)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](../LICENSE)
 
-This directory contains comprehensive resources for using Windows Subsystem for Linux (WSL) in development and data science workflows.
+This section contains comprehensive resources for using Windows Subsystem for Linux (WSL) in development and data science workflows.
 
 ## Available Guides
 
